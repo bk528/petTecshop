@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Urbanix — Estilo y tecnología para tus mascotas</title>
+  <meta name="description" content="Urbanix: gadgets innovadores y accesorios premium para mascotas. Calidad, diseño y tecnología." />
+  <link rel="icon" href="/assets/favicon.png" />
+  <style>
+    :root{
+      --bg:#070709; /* very dark */
+      --card:#0f0f10;
+      --muted:#9aa0a6;
+      --gold:#c9a54f;
+      --gold-dark:#a48339;
+      --accent:#d4b86b;
+      --white:#f7f7f8;
+      --radius:14px;
+      --max-width:1100px;
+      --shadow: 0 6px 18px rgba(0,0,0,0.6);
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#0a0a0b 80%);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      justify-content:center;
+      font-size:16px;
+      padding:40px 20px;
+    }
+    .wrap{width:100%;max-width:var(--max-width)}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{width:56px;height:56px;border-radius:12px;object-fit:contain;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);padding:8px}
+    .brand h1{margin:0;font-size:20px;letter-spacing:1px}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px}
+    nav a.cta{color:var(--bg);background:var(--gold);padding:8px 12px;border-radius:10px}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:36px}
+    .hero .copy h2{margin:0 0 12px;font-size:36px}
+    .hero .copy p{color:var(--muted);line-height:1.6}
+    .cta-row{margin-top:18px;display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);cursor:pointer;text-decoration:none}
+    .btn.primary{background:linear-gradient(90deg,var(--gold),var(--gold-dark));color:var(--bg);font-weight:600}
+    .btn.ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.06)}
+
+    .hero .mock{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .product-card{background:linear-gradient(180deg,var(--card),#111213);padding:16px;border-radius:12px;display:flex;gap:12px;align-items:center}
+    .product-card img{width:88px;height:88px;border-radius:10px;object-fit:cover}
+    .product-card h4{margin:0;font-size:16px}
+    .product-card p{margin:6px 0 0;color:var(--muted);font-size:13px}
+    .price{font-weight:700;margin-left:auto;color:var(--gold)}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .section{margin-bottom:36px}
+    h3{margin-top:0}
+
+    .features{display:flex;gap:12px}
+    .feature{background:linear-gradient(180deg,#0b0b0c, #0d0d0e);padding:14px;border-radius:12px;flex:1;text-align:center}
+    .feature h5{margin:8px 0 0}
+
+    footer{border-top:1px solid rgba(255,255,255,0.03);padding-top:18px;display:flex;justify-content:space-between;align-items:center}
+    .social a{color:var(--muted);margin-left:12px;text-decoration:none}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:620px){
+      body{padding:20px}
+      .grid{grid-template-columns:1fr}
+      .brand h1{font-size:16px}
+      .hero .copy h2{font-size:26px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <!-- Reemplaza /assets/urbanix-logo.png por tu logo real -->
+        <img src="/assets/urbanix-logo.png" alt="Urbanix logo" />
+        <div>
+          <h1>Urbanix</h1>
+          <div style="color:var(--muted);font-size:13px">Estilo y tecnología</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#productos">Productos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a class="cta" href="#productos">Comprar</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section">
+        <div class="copy">
+          <h2>Estilo y tecnología para vos y tu mascota</h2>
+          <p>Urbanix reúne gadgets innovadores y accesorios premium pensados para la vida urbana. Productos seleccionados por su diseño, funcionalidad y calidad. Envíos rápidos y asesoramiento experto.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#productos">Ver productos</a>
+            <a class="btn ghost" href="#nosotros">Conocé Urbanix</a>
+          </div>
+        </div>
+
+        <aside class="mock">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="product-card">
+              <img src="/assets/sample1.jpg" alt="producto 1" />
+              <div>
+                <h4>Collar Inteligente Urban</h4>
+                <p>Monitoreo GPS y control desde app</p>
+              </div>
+              <div class="price">USD 49.99</div>
+            </div>
+
+            <div class="product-card">
+              <img src="/assets/sample2.jpg" alt="producto 2" />
+              <div>
+                <h4>Cámara PetCam 360</h4>
+                <p>Video Full HD y alimentación remota</p>
+              </div>
+              <div class="price">USD 89.99</div>
+            </div>
+
+            <div class="product-card">
+              <img src="/assets/sample3.jpg" alt="producto 3" />
+              <div>
+                <h4>Luces LED Interactivas</h4>
+                <p>Ambiente y juguetes con control</p>
+              </div>
+              <div class="price">USD 19.99</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="productos" class="section">
+        <h3>Productos destacados</h3>
+        <div class="grid">
+          <!-- Reemplaza los href con tus enlaces de afiliado de Amazon -->
+          <article class="feature">
+            <img src="/assets/sample1.jpg" alt="" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:12px"/>
+            <h4>Collar Inteligente</h4>
+            <p style="color:var(--muted);font-size:14px">GPS, resistencia al agua y notificaciones al celular.</p>
+            <a class="btn primary" href="#" style="display:inline-block;margin-top:12px">Comprar</a>
+          </article>
+
+          <article class="feature">
+            <img src="/assets/sample2.jpg" alt="" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:12px"/>
+            <h4>Cámara PetCam 360</h4>
+            <p style="color:var(--muted);font-size:14px">Control remoto y visión nocturna.</p>
+            <a class="btn primary" href="#" style="display:inline-block;margin-top:12px">Comprar</a>
+          </article>
+
+          <article class="feature">
+            <img src="/assets/sample3.jpg" alt="" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:12px"/>
+            <h4>Juguete Interactivo LED</h4>
+            <p style="color:var(--muted);font-size:14px">Diversión y luz para tu mascota.</p>
+            <a class="btn primary" href="#" style="display:inline-block;margin-top:12px">Comprar</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="nosotros" class="section">
+        <h3>Sobre Urbanix</h3>
+        <p style="color:var(--muted)">Urbanix nace para aportar tecnología con estilo al cuidado de las mascotas. Seleccionamos productos por su diseño y utilidad pensando en quienes viven la ciudad y buscan soluciones prácticas y estéticas.</p>
+      </section>
+
+      <section id="contacto" class="section">
+        <h3>Contacto</h3>
+        <p style="color:var(--muted)">¿Consultas? Escribinos a <a href="mailto:hola@urbanix.example" style="color:var(--gold)">hola@urbanix.example</a> o seguinos en nuestras redes.</p>
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <a class="btn ghost" href="https://instagram.com/urbanix">Instagram</a>
+          <a class="btn ghost" href="https://tiktok.com/@urbanix">TikTok</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div style="color:var(--muted)">© <strong>Urbanix</strong> — Todos los derechos reservados</div>
+      <div class="social">
+        <a href="https://instagram.com/urbanix">IG</a>
+        <a href="https://tiktok.com/@urbanix">TT</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Instrucciones rápidas:
+    - Reemplaza /assets/urbanix-logo.png y /assets/sampleX.jpg por tus imágenes en el repo.
+    - Actualiza los enlaces "Comprar" por tus links de afiliado de Amazon (incluir tu tag de asociado).
+    - Para subir a GitHub Pages: crea repo, sube este archivo como index.html en la rama main (o gh-pages) y activa Pages en Settings -> Pages.
+  -->
+</body>
+</html>
