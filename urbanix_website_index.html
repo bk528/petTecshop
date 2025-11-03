@@ -3,200 +3,245 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Urbanix — Estilo y tecnología para tus mascotas</title>
-  <meta name="description" content="Urbanix: gadgets innovadores y accesorios premium para mascotas. Calidad, diseño y tecnología." />
-  <link rel="icon" href="/assets/favicon.png" />
+  <title>Urbanix — Tecnología & Mascotas</title>
+  <meta name="description" content="Urbanix — Gadgets tecnológicos y accesorios para mascotas. Diseño inspirado en tu Canva." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.png" />
   <style>
     :root{
-      --bg:#070709; /* very dark */
+      --gold: #d4af37; /* dorado */
+      --metal: linear-gradient(180deg,#bfc7cc,#8f969a); /* gris metalizado */
+      --bg:#070707;
       --card:#0f0f10;
-      --muted:#9aa0a6;
-      --gold:#c9a54f;
-      --gold-dark:#a48339;
-      --accent:#d4b86b;
-      --white:#f7f7f8;
-      --radius:14px;
-      --max-width:1100px;
-      --shadow: 0 6px 18px rgba(0,0,0,0.6);
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --muted:#bfc7c9;
+      --glass: rgba(255,255,255,0.03);
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:linear-gradient(180deg,var(--bg),#0a0a0b 80%);
-      color:var(--white);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      display:flex;
-      justify-content:center;
-      font-size:16px;
-      padding:40px 20px;
-    }
-    .wrap{width:100%;max-width:var(--max-width)}
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Arial;color:#eef0f2;background:linear-gradient(180deg,#050505,#0b0b0b)}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 36px;background:linear-gradient(180deg,rgba(0,0,0,0.6),transparent);position:sticky;top:0;z-index:60}
     .brand{display:flex;align-items:center;gap:14px}
-    .brand img{width:56px;height:56px;border-radius:12px;object-fit:contain;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);padding:8px}
-    .brand h1{margin:0;font-size:20px;letter-spacing:1px}
-    nav a{color:var(--muted);text-decoration:none;margin-left:18px}
-    nav a.cta{color:var(--bg);background:var(--gold);padding:8px 12px;border-radius:10px}
+    .brand img{height:64px;width:64px;object-fit:contain}
+    .brand h1{font-size:20px;color:var(--gold);margin:0}
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px}
+    nav a:hover{color:#fff}
+    .lang-toggle{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 10px;border-radius:10px;color:var(--muted);cursor:pointer}
 
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:36px}
-    .hero .copy h2{margin:0 0 12px;font-size:36px}
-    .hero .copy p{color:var(--muted);line-height:1.6}
-    .cta-row{margin-top:18px;display:flex;gap:12px}
-    .btn{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);cursor:pointer;text-decoration:none}
-    .btn.primary{background:linear-gradient(90deg,var(--gold),var(--gold-dark));color:var(--bg);font-weight:600}
-    .btn.ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.06)}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:56px 36px}
+    .hero-left{padding:28px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);backdrop-filter: blur(6px)}
+    .kicker{color:var(--gold);font-weight:700;letter-spacing:1px}
+    .hero h2{color:#fff;font-size:38px;margin:12px 0}
+    .hero p{color:var(--muted);line-height:1.5}
+    .hero-cta{margin-top:16px;display:flex;gap:12px}
+    .btn-gold{background:var(--gold);color:#0b0b0b;padding:10px 16px;border-radius:12px;border:0;font-weight:700;cursor:pointer}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.06);padding:10px 16px;border-radius:12px;background:transparent;color:var(--muted)}
 
-    .hero .mock{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
-    .product-card{background:linear-gradient(180deg,var(--card),#111213);padding:16px;border-radius:12px;display:flex;gap:12px;align-items:center}
-    .product-card img{width:88px;height:88px;border-radius:10px;object-fit:cover}
-    .product-card h4{margin:0;font-size:16px}
-    .product-card p{margin:6px 0 0;color:var(--muted);font-size:13px}
-    .price{font-weight:700;margin-left:auto;color:var(--gold)}
+    /* Featured cards */
+    .featured{display:grid;grid-template-columns:repeat(1,1fr);gap:12px;margin-top:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px;display:flex;gap:12px;align-items:center}
+    .card img{width:84px;height:84px;object-fit:cover;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+    .card h4{margin:0;color:var(--gold)}
+    .card p{margin:0;color:var(--muted);font-size:13px}
 
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .section{margin-bottom:36px}
-    h3{margin-top:0}
+    /* Sections */
+    main{max-width:1200px;margin:0 auto;padding:22px}
+    .section{margin-top:28px}
+    .section h3{color:var(--gold);margin-bottom:12px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .product{background:linear-gradient(180deg,#0d0d0d,#131313);border-radius:14px;padding:14px;transition:transform .32s, box-shadow .32s}
+    .product:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,0.7)}
+    .product img{width:100%;height:180px;object-fit:cover;border-radius:10px}
+    .product h4{color:var(--gold);margin:10px 0 6px}
+    .product .price{color:var(--muted);margin-bottom:10px}
+    .product .actions{display:flex;gap:8px}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--muted)}
 
-    .features{display:flex;gap:12px}
-    .feature{background:linear-gradient(180deg,#0b0b0c, #0d0d0e);padding:14px;border-radius:12px;flex:1;text-align:center}
-    .feature h5{margin:8px 0 0}
+    /* Footer */
+    footer{margin-top:40px;padding:30px 36px;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center}
+    .socials a{margin-right:10px;color:var(--gold);font-size:20px}
 
-    footer{border-top:1px solid rgba(255,255,255,0.03);padding-top:18px;display:flex;justify-content:space-between;align-items:center}
-    .social a{color:var(--muted);margin-left:12px;text-decoration:none}
+    /* Chat icon and window */
+    .chat-btn{position:fixed;right:20px;bottom:20px;background:var(--gold);width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;color:#000;cursor:pointer;box-shadow:0 18px 40px rgba(212,175,55,0.15);z-index:90}
+    .chat-window{position:fixed;right:20px;bottom:96px;width:360px;max-width:92%;background:linear-gradient(180deg,#0b0b0b,#111);border-radius:12px;padding:12px;box-shadow:0 30px 60px rgba(2,2,2,0.6);display:none;flex-direction:column;z-index:95}
+    .chat-window.active{display:flex}
+    .chat-header{background:var(--gold);color:#000;padding:10px;border-radius:8px;font-weight:700;text-align:center}
+    .chat-messages{height:300px;overflow:auto;padding:8px;margin-top:8px}
+    .chat-input{display:flex;gap:8px;margin-top:8px}
+    .chat-input input{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff}
 
-    /* responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:repeat(2,1fr)}
+    /* Animations */
+    .fade-up{opacity:0;transform:translateY(12px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+    .in-view{opacity:1;transform:translateY(0)}
+
+    @media(max-width:960px){
+      .hero{grid-template-columns:1fr;padding:28px}
+      .hero-left{order:2}
+      .hero-right{order:1}
+      header{padding:12px 18px}
+      .brand img{height:52px;width:52px}
     }
-    @media (max-width:620px){
-      body{padding:20px}
-      .grid{grid-template-columns:1fr}
-      .brand h1{font-size:16px}
-      .hero .copy h2{font-size:26px}
+
+    @media(max-width:520px){
+      .product img{height:140px}
+      .hero h2{font-size:26px}
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <!-- Reemplaza /assets/urbanix-logo.png por tu logo real -->
-        <img src="/assets/urbanix-logo.png" alt="Urbanix logo" />
-        <div>
-          <h1>Urbanix</h1>
-          <div style="color:var(--muted);font-size:13px">Estilo y tecnología</div>
-        </div>
+  <header>
+    <div class="brand">
+      <img src="assets/logo.png" alt="Urbanix logo" id="logoImg">
+      <div>
+        <h1>Urbanix</h1>
+        <div style="color:var(--muted);font-size:13px">Tecnología & Mascotas</div>
       </div>
-      <nav>
-        <a href="#productos">Productos</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#contacto">Contacto</a>
-        <a class="cta" href="#productos">Comprar</a>
-      </nav>
-    </header>
+    </div>
+    <nav>
+      <a href="#gadgets">Gadgets</a>
+      <a href="#mascotas">Mascotas</a>
+      <button class="lang-toggle" id="langBtn">ES</button>
+    </nav>
+  </header>
 
-    <main>
-      <section class="hero section">
-        <div class="copy">
-          <h2>Estilo y tecnología para vos y tu mascota</h2>
-          <p>Urbanix reúne gadgets innovadores y accesorios premium pensados para la vida urbana. Productos seleccionados por su diseño, funcionalidad y calidad. Envíos rápidos y asesoramiento experto.</p>
-          <div class="cta-row">
-            <a class="btn primary" href="#productos">Ver productos</a>
-            <a class="btn ghost" href="#nosotros">Conocé Urbanix</a>
-          </div>
-        </div>
-
-        <aside class="mock">
-          <div style="display:flex;flex-direction:column;gap:12px">
-            <div class="product-card">
-              <img src="/assets/sample1.jpg" alt="producto 1" />
-              <div>
-                <h4>Collar Inteligente Urban</h4>
-                <p>Monitoreo GPS y control desde app</p>
-              </div>
-              <div class="price">USD 49.99</div>
-            </div>
-
-            <div class="product-card">
-              <img src="/assets/sample2.jpg" alt="producto 2" />
-              <div>
-                <h4>Cámara PetCam 360</h4>
-                <p>Video Full HD y alimentación remota</p>
-              </div>
-              <div class="price">USD 89.99</div>
-            </div>
-
-            <div class="product-card">
-              <img src="/assets/sample3.jpg" alt="producto 3" />
-              <div>
-                <h4>Luces LED Interactivas</h4>
-                <p>Ambiente y juguetes con control</p>
-              </div>
-              <div class="price">USD 19.99</div>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <section id="productos" class="section">
-        <h3>Productos destacados</h3>
-        <div class="grid">
-          <!-- Reemplaza los href con tus enlaces de afiliado de Amazon -->
-          <article class="feature">
-            <img src="/assets/sample1.jpg" alt="" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:12px"/>
-            <h4>Collar Inteligente</h4>
-            <p style="color:var(--muted);font-size:14px">GPS, resistencia al agua y notificaciones al celular.</p>
-            <a class="btn primary" href="#" style="display:inline-block;margin-top:12px">Comprar</a>
-          </article>
-
-          <article class="feature">
-            <img src="/assets/sample2.jpg" alt="" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:12px"/>
-            <h4>Cámara PetCam 360</h4>
-            <p style="color:var(--muted);font-size:14px">Control remoto y visión nocturna.</p>
-            <a class="btn primary" href="#" style="display:inline-block;margin-top:12px">Comprar</a>
-          </article>
-
-          <article class="feature">
-            <img src="/assets/sample3.jpg" alt="" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:12px"/>
-            <h4>Juguete Interactivo LED</h4>
-            <p style="color:var(--muted);font-size:14px">Diversión y luz para tu mascota.</p>
-            <a class="btn primary" href="#" style="display:inline-block;margin-top:12px">Comprar</a>
-          </article>
-        </div>
-      </section>
-
-      <section id="nosotros" class="section">
-        <h3>Sobre Urbanix</h3>
-        <p style="color:var(--muted)">Urbanix nace para aportar tecnología con estilo al cuidado de las mascotas. Seleccionamos productos por su diseño y utilidad pensando en quienes viven la ciudad y buscan soluciones prácticas y estéticas.</p>
-      </section>
-
-      <section id="contacto" class="section">
-        <h3>Contacto</h3>
-        <p style="color:var(--muted)">¿Consultas? Escribinos a <a href="mailto:hola@urbanix.example" style="color:var(--gold)">hola@urbanix.example</a> o seguinos en nuestras redes.</p>
-        <div style="display:flex;gap:10px;margin-top:10px">
-          <a class="btn ghost" href="https://instagram.com/urbanix">Instagram</a>
-          <a class="btn ghost" href="https://tiktok.com/@urbanix">TikTok</a>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div style="color:var(--muted)">© <strong>Urbanix</strong> — Todos los derechos reservados</div>
-      <div class="social">
-        <a href="https://instagram.com/urbanix">IG</a>
-        <a href="https://tiktok.com/@urbanix">TT</a>
+  <div class="hero">
+    <div class="hero-left fade-up">
+      <div class="kicker">NOVEDADES</div>
+      <h2>Gadgets con estilo — accesorios para tus mascotas</h2>
+      <p>Diseño futurista, materiales premium y soluciones que facilitan la vida de tus mascotas. Compra con nuestros enlaces afiliados y recibe las mejores recomendaciones.</p>
+      <div class="hero-cta">
+        <button class="btn-gold">Comprar ahora</button>
+        <button class="btn-ghost">Ver catálogo</button>
       </div>
-    </footer>
+
+      <div class="featured" id="featured">
+        <!-- Featured — JS rellenará con alta definición -->
+      </div>
+    </div>
+
+    <div class="hero-right" style="display:flex;align-items:center;justify-content:center">
+      <!-- Usamos una imagen de gadget/hero con alta resolución (usa assets/g1.jpg) -->
+      <img src="assets/g1.jpg" alt="Gadget hero" style="width:420px;height:320px;object-fit:cover;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.6)"/>
+    </div>
   </div>
 
-  <!-- Instrucciones rápidas:
-    - Reemplaza /assets/urbanix-logo.png y /assets/sampleX.jpg por tus imágenes en el repo.
-    - Actualiza los enlaces "Comprar" por tus links de afiliado de Amazon (incluir tu tag de asociado).
-    - Para subir a GitHub Pages: crea repo, sube este archivo como index.html en la rama main (o gh-pages) y activa Pages en Settings -> Pages.
-  -->
+  <main>
+    <section id="gadgets" class="section fade-up">
+      <h3>Gadgets tecnológicos</h3>
+      <div class="grid" id="gadgetsGrid">
+        <!-- Productos gadgets (JS) -->
+      </div>
+    </section>
+
+    <section id="mascotas" class="section fade-up">
+      <h3>Accesorios para mascotas</h3>
+      <div class="grid" id="petsGrid">
+        <!-- Productos mascotas (JS) -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong style="color:var(--gold)">Urbanix</strong>
+      <div style="color:var(--muted)">© <span id="year"></span> — Tecnología & Mascotas</div>
+    </div>
+    <div class="socials">
+      <a href="https://www.instagram.com/urbanixtec/" target="_blank" aria-label="Instagram">📷</a>
+      <a href="https://www.tiktok.com/@urbanixtec?lang=it-IT" target="_blank" aria-label="TikTok">🎵</a>
+      <a href="https://www.amazon.com?seller=amazon0097d-20" target="_blank" aria-label="Amazon">🛒</a>
+    </div>
+  </footer>
+
+  <!-- Chat -->
+  <div class="chat-btn" id="chatBtn" title="Abrir chat">💬</div>
+  <div class="chat-window" id="chatWindow" role="dialog" aria-label="Chat Urbanix">
+    <div class="chat-header">Urbanix</div>
+    <div class="chat-messages" id="messages">
+      <div style="color:var(--muted);font-size:14px">Hola 👋 ¿En qué te ayudo? Ej: "Recomienda gadgets para viajar"</div>
+    </div>
+    <div class="chat-input">
+      <input id="chatInput" placeholder="Escribe tu mensaje..." aria-label="mensaje" />
+      <button class="btn-gold" id="sendMsg">OK</button>
+    </div>
+  </div>
+
+  <script>
+    // Data (usa tus assets existentes, pero con srcset para mejor definición si subes versiones @2x)
+    const gadgets = [
+      {id:1,title_es:'Cargador inalámbrico rápido',title_en:'Fast Wireless Charger',img:'assets/g1.jpg',price:'€24.99',url:'https://www.amazon.com/dp/example?tag=amazon0097d-20'},
+      {id:2,title_es:'Powerbank 20000mAh',title_en:'20000mAh Powerbank',img:'assets/g2.jpg',price:'€39.90',url:'https://www.amazon.com/dp/example2?tag=amazon0097d-20'},
+      {id:3,title_es:'Auriculares Bluetooth ANC',title_en:'Bluetooth ANC Headphones',img:'assets/g3.jpg',price:'€59.00',url:'https://www.amazon.com/dp/example3?tag=amazon0097d-20'}
+    ];
+    const pets = [
+      {id:1,title_es:'Collar GPS para perros',title_en:'GPS Dog Collar',img:'assets/p1.jpg',price:'€89.90',url:'https://www.amazon.com/dp/example4?tag=amazon0097d-20'},
+      {id:2,title_es:'Cepillo antipelo',title_en:'Fur Remover Brush',img:'assets/p2.jpg',price:'€12.50',url:'https://www.amazon.com/dp/example5?tag=amazon0097d-20'},
+      {id:3,title_es:'Juguete interactivo',title_en:'Interactive Pet Toy',img:'assets/p3.jpg',price:'€19.90',url:'https://www.amazon.com/dp/example6?tag=amazon0097d-20'}
+    ];
+
+    // Render featured
+    const featuredEl = document.getElementById('featured');
+    gadgets.slice(0,3).forEach(g=>{
+      const div = document.createElement('div');div.className='card fade-up';
+      div.innerHTML = `<img src="${g.img}" srcset="${g.img} 1x" alt="${g.title_en}"><div><h4>${g.title_es}</h4><p class=\"hint\">${g.price}</p></div>`;
+      featuredEl.appendChild(div);
+    });
+
+    // Render grids
+    const gg = document.getElementById('gadgetsGrid');
+    gadgets.forEach(g=>{
+      const el = document.createElement('div');el.className='product fade-up';
+      el.innerHTML = `<img src='${g.img}' srcset='${g.img} 1x' alt='${g.title_es}'/><h4>${g.title_es}</h4><div class='price'>${g.price}</div><div class='actions'><a class='btn-gold' href='${g.url}' target='_blank'>Comprar</a><button class='ghost' onclick='recommend(${g.id},\"gadget\")'>Recomendar</button></div>`;
+      gg.appendChild(el);
+    });
+
+    const pg = document.getElementById('petsGrid');
+    pets.forEach(p=>{
+      const el = document.createElement('div');el.className='product fade-up';
+      el.innerHTML = `<img src='${p.img}' srcset='${p.img} 1x' alt='${p.title_es}'/><h4>${p.title_es}</h4><div class='price'>${p.price}</div><div class='actions'><a class='btn-gold' href='${p.url}' target='_blank'>Comprar</a><button class='ghost' onclick='recommend(${p.id},\"pet\")'>Recomendar</button></div>`;
+      pg.appendChild(el);
+    });
+
+    // Chat toggle
+    const chatBtn = document.getElementById('chatBtn');
+    const chatWindow = document.getElementById('chatWindow');
+    const chatInput = document.getElementById('chatInput');
+    const sendMsg = document.getElementById('sendMsg');
+    const messages = document.getElementById('messages');
+
+    chatBtn.addEventListener('click',()=>{chatWindow.classList.toggle('active');});
+    sendMsg.addEventListener('click',()=>{const v=chatInput.value.trim(); if(!v) return; pushUser(v); chatInput.value=''; handleQuery(v);});
+    chatInput.addEventListener('keydown',e=>{if(e.key==='Enter') sendMsg.click();});
+
+    function pushBot(txt){const d=document.createElement('div');d.style.margin='8px 0';d.style.padding='8px';d.style.background='rgba(255,255,255,0.02)';d.style.borderRadius='8px';d.innerText=txt;messages.appendChild(d);messages.scrollTop = messages.scrollHeight;}
+    function pushUser(txt){const d=document.createElement('div');d.style.margin='8px 0';d.style.padding='8px';d.style.background='linear-gradient(90deg,rgba(212,175,55,0.12),rgba(212,175,55,0.06))';d.style.borderRadius='8px';d.style.textAlign='right';d.innerText=txt;messages.appendChild(d);messages.scrollTop = messages.scrollHeight;}
+
+    function handleQuery(q){const text=q.toLowerCase();if(text.includes('gadget')||text.includes('tecnol')){pushBot('Recomendación: Powerbank 20000mAh — ideal para viajes. También el cargador inalámbrico.');}else if(text.includes('perro')||text.includes('gato')||text.includes('mascota')){pushBot('Recomendación: Collar GPS para perros y juguete interactivo para gatos. ¿Querés enlaces?');}else{pushBot('Puedo ayudarte a encontrar productos y enviarte enlaces. Probá: "recomienda gadgets para viajar"');}}
+
+    window.recommend = function(id,cat){
+      const list = cat==='pet'?pets:gadgets;
+      const p = list.find(x=>x.id===id);
+      if(!p) return alert('Producto no encontrado');
+      chatWindow.classList.add('active');
+      pushUser('Quiero info sobre: '+p.title_es);
+      setTimeout(()=>{pushBot('Enlace: '+p.url);},500);
+    }
+
+    // IntersectionObserver for reveal animations (imitates Canva scroll animations)
+    const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');}}),{threshold:0.12});
+    document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+    // Year
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Language toggle basic
+    let LANG = localStorage.getItem('urbanix_lang')||'es';
+    const applyLang = (lang)=>{LANG=lang;localStorage.setItem('urbanix_lang',lang);document.getElementById('langBtn').innerText = lang.toUpperCase();}
+    document.getElementById('langBtn').addEventListener('click',()=>applyLang(LANG==='es'?'en':'es'));
+    applyLang(LANG);
+
+  </script>
 </body>
 </html>
